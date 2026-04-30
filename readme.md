@@ -1,70 +1,78 @@
-import random
+###  Number Guessing Game
 
-# Function to play a level of the game
-def play_level(max_number, level_name):
-    best = None
-
-    while True:
-        print(f"\nWelcome to {level_name} (1-{max_number})")
-        number_to_guess = random.randint(1, max_number)
-        attempts = 0
-
-        while True:
-            try:
-                guess = int(input(f"Enter your guess (1-{max_number}): "))
-
-                if guess < 1 or guess > max_number:
-                    print("Out of range.")
-                    continue
-
-                attempts += 1
-
-                if guess == number_to_guess:
-                    print(f"Correct! Attempts: {attempts}")
-                    if best is None or attempts < best:
-                        best = attempts
-                        print(f" New best score: {best} attempts!")
-
-                    print(f"Best score so far: {best}")
-                    break
-
-                elif guess < number_to_guess:
-                    print("Too low!")
-                else:
-                    print("Too high!")
-
-            except ValueError:
-                print("Invalid input.")
-
-        play_again = input("Play again? (yes/no): ").strip().lower()
-        if play_again not in ("yes", "y"):
-            break
-
-#Main menu to select difficulty level and start the game
-def main():
-    print("========== Welcome to the Number Guessing Game! ==========\n")
-
-    while True:
-        print("\nChoose a level:")
-        print("1. Easy (1-10)")
-        print("2. Medium (1-50)")
-        print("3. Hard (1-100)")
-        print("4. Exit")
-
-        choice = input("Enter your choice (1/2/3/4): ").strip()
-
-        if choice == '1':
-            play_level(10, "Easy")
-        elif choice == '2':
-            play_level(50, "Medium")
-        elif choice == '3':
-            play_level(100, "Hard")
-        elif choice == '4':
-            print("Thanks for playing!")
-            break
-        else:
-            print("Invalid choice.")
+A simple command-line number guessing game built in Python.  
+Try to guess the randomly generated number with the fewest attempts possible across different difficulty levels.
 
 
-if __name__ == "__main__":
-    main()
+
+### 📌 Features
+
+-  Interactive CLI gameplay
+
+- Three difficulty levels:
+    - Easy (1–10)
+    - Medium (1–50)
+    - Hard (1–100)
+
+-  Input validation (handles invalid and out-of-range inputs)
+
+-  Best score tracker per session
+
+-  Option to replay after each round
+
+
+
+## 🚀 How to Run
+
+Make sure you have Python installed (Python 3+ recommended).
+```
+bash
+python main.py
+```
+ 
+ 
+ 
+ ```
+ How to Play
+Choose a difficulty level:
+
+ •Easy: 1–10
+ •Medium: 1–50
+ •Hard: 1–100
+
+Enter your guess
+•The game will tell you if your guess is:
+•Too high 📈
+•Too low 📉
+•Correct 🎉
+Try to beat your best score
+Choose whether to play again or to quit
+ 
+ 
+Concepts Used:
+•Python loops (while)
+•Conditional statements (if/else)
+•Functions
+•Random number generation
+•Error handling (try/except)
+•User input handling
+
+
+
+📁 Project Structure
+    number-guessing-game/
+    │
+    ├── number-guessing-game.py
+    └── README.md
+
+👨‍💻 Author
+
+Kier Malubay
+Student | Beginner Python Developer
+
+
+📌 Future Improvements (Ideas)
+•Save best scores permanently (file or database)
+•Add timer-based scoring
+•Add GUI version (Tkinter or web app)
+•Add multiplayer mode
