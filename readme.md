@@ -26,8 +26,9 @@ Try to guess the randomly generated number with the fewest attempts possible acr
 
 Make sure you have Python installed (Python 3+ recommended).
 
-```bash
+bash
 python main.py
+
 ```
 
 
